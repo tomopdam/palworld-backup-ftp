@@ -1,0 +1,26 @@
+@echo off
+
+REM ftp username and password -- don't share these!!
+SET USERNAME=ftp_username
+SET PASSWORD=ftp_password
+
+REM SFTP ip address and port
+SET HOST=123.456.78.90
+SET PORT=12345
+
+REM if your Pal/ directory is already visible when you connect then just leave this blank, i.e.: SET REMOTE_BASE_DIR=
+REM for me my Pal/ folder looks like /123.456.78.90_12345/Pal so i would set the below to /123.456.78.90_12345
+SET REMOTE_BASE_DIR=/some/folder_path_that_comes_before_Pal
+
+REM must be set to the value of DedicatedServerName in .../Pal/Saved/Config/WindowsServer/GameUserSettings.ini
+REM the value must also appear as a subfolder in: .../Pal/Saved/SaveGames/0/
+SET DEDICATED_SERVER_NAME=A0B1C2D3E4F5G6
+
+REM where is WinSCP installed?
+SET LOCAL_WINSCP_DIR=C:\Program Files (x86)\WinSCP
+
+REM where are these script files located? i.e. run-palworld-backup.bat, set-config.bat, FTPBackupScript.txt
+SET LOCAL_SCRIPT_DIR=C:\PalworldBackup
+
+REM where should we save backup folders?: note, doesn't have to be a subfolder of LOCAL_SCRIPT_DIR
+SET LOCAL_BACKUPS_DIR=C:\PalworldBackup\Backups

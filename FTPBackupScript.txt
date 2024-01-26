@@ -1,0 +1,14 @@
+option echo off
+option batch on
+option confirm off
+
+# connect to the ftp server
+open sftp://%USERNAME%:%PASSWORD%@%HOST%:%PORT%/
+
+# copy the Windows Server config files:
+get -nopermissions -preservetime "%REMOTE_WINDOWS_SERVER_DIR%/GameUserSettings.ini" "%REMOTE_WINDOWS_SERVER_DIR%/PalWorldSettings.ini" "%THIS_BACKUP_WINDOWS_SERVER_DIR%\"
+
+# copy the saved game data folder:
+get -nopermissions -preservetime "%REMOTE_SAVEGAMES_DIR%/*" "%THIS_BACKUP_SAVEGAMES_DIR%\"
+
+exit
